@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/lamovi/static/css/main.2cce8147.chunk.css",
+    "main.js": "/lamovi/static/js/main.c0262520.chunk.js",
+    "main.js.map": "/lamovi/static/js/main.c0262520.chunk.js.map",
+    "runtime~main.js": "/lamovi/static/js/runtime~main.50993654.js",
+    "runtime~main.js.map": "/lamovi/static/js/runtime~main.50993654.js.map",
+    "static/js/2.ede10acd.chunk.js": "/lamovi/static/js/2.ede10acd.chunk.js",
+    "static/js/2.ede10acd.chunk.js.map": "/lamovi/static/js/2.ede10acd.chunk.js.map",
+    "index.html": "/lamovi/index.html",
+    "precache-manifest.149be6c1e74130ce880f71951850d4fb.js": "/lamovi/precache-manifest.149be6c1e74130ce880f71951850d4fb.js",
+    "service-worker.js": "/lamovi/service-worker.js",
+    "static/css/main.2cce8147.chunk.css.map": "/lamovi/static/css/main.2cce8147.chunk.css.map",
+    "static/media/logo.svg": "/lamovi/static/media/logo.5d5d9eef.svg"
+  }
+}
