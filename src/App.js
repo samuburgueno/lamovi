@@ -1,26 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  async componentDidMount() {
+    try {
+      const resp = await fetch('http://etr.gob.ar/ajax/getEncryptCuantoTengo_express.php', {
+          method: 'post',
+          credentials: 'include',
+          body: JSON.stringify({numTarjeta: '345678987654'})
+      });
+      const data = await resp.json()
+      console.log(data)
+    } catch(error) {
+      console.log(error)
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
