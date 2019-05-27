@@ -1,29 +1,47 @@
 $list: (3,7,11,15)
 
+.Tarjetas
+	text-align: left
+
 .Tarjeta
-	align-items: center
-	.NuevaTarjeta
-		width: 280px
-		height: 150px
-		border: 4px solid white
-		border-radius: 20px
-		position: relative
-		text-align: left
-		padding: 20px
-		.marcaTarjeta
-			font-size: 40px
-			font-weight: bold
-			position: absolute
-			top: 15px
-			left: 20px
-			margin: 0
-		.numeroTarjeta
-			position: absolute
-			bottom: 0
-			left: 20px
-			font-size: 22px
-			span:nth-child(4n)
-				margin-right: 5px
+	background-color: #282c34
+	color: white
+	width: 280px
+	height: 150px
+	// border: 4px solid white
+	border-radius: 15px
+	position: relative
+	text-align: left
+	padding: 20px
+	margin-bottom: 20px
+	.marcaTarjeta
+		font-size: 40px
+		font-weight: bold
+		position: absolute
+		top: 15px
+		left: 20px
+		margin: 0
+	.saldoTarjeta
+		font-family: 'Share Tech Mono', monospace
+		font-size: 40px
+		font-weight: bold
+		position: absolute
+		top: 15px
+		right: 20px
+		margin: 0
+	.numeroTarjeta
+		position: absolute
+		font-family: 'Share Tech Mono', monospace
+		bottom: 0
+		left: 20px
+		font-size: 24px
+		span:nth-child(4n)
+			margin-right: 5px
+	&:hover
+		cursos: pointer
+.TarjetaWrapper
+	text-align: left
+	margin-top: 25px
 	input[type="text"]
 		z-index: -9
 		background-color: transparent
@@ -31,7 +49,21 @@ $list: (3,7,11,15)
 		color: transparent
 		&:focus
 			outline: none
-	button
-		padding: 10px 15px
-		border: 1px solid white
-		display: block
+	.botones
+		text-align: right
+		.btn
+			padding: 10px 15px
+			border: 1px solid white
+			background-color: transparent
+			color: white
+			text-transform: uppercase
+			font-size: 14px
+			border-radius: 6px
+			&:last-child
+				margin-left: 10px
+			&.btn-aceptar
+				background-color: #545454
+			&.btn-cancelar
+				border-color: #545454
+				color: #545454
+

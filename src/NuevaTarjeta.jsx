@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Store from 'store';
+
+import Tarjeta from './Tarjeta.jsx'
 
 export default class NuevaTarjeta extends Component {
 	constructor(props) {
@@ -8,38 +11,71 @@ export default class NuevaTarjeta extends Component {
 			numeroTarjeta: 'XXXXXXXXXXXXXXXXX'
 		}
 
-		this.agregarTarjeta = this.agregarTarjeta.bind(this)
 		this.onChange = this.onChange.bind(this)
+		this.clickAceptar = this.clickAceptar.bind(this)
+		this.clickCancelar = this.clickCancelar.bind(this)
 	}
 
-	agregarTarjeta() {
+	componentDidMount() {
 		this.numeroTarjeta.focus();
+		console.log(Store.get('tarjetas'))
 	}
 
 	onChange(event) {
-		var numeroTarjeta = event.target.value.padEnd(17, 'X')
+		// Limito el ingreso a 17 caracteres.
+		if (event.target.value.length < 18) {
+			var numeroTarjeta = event.target.value.padEnd(17, 'X')
 
-		this.setState({
-			numeroTarjeta
+			this.setState({
+				numeroTarjeta
+			})
+		}
+	}
+
+	clickAceptar() {
+		// Guardar la tarjeta
+		const tarjeta = {
+			numero: this.state.numeroTarjeta,
+			documento: false
+		}
+
+		var tarjetas = Store.get('tarjetas')
+
+		if (tarjetas === undefined) {
+			tarjetas = []
+		}
+
+		var existe = false
+		tarjetas.forEach((tarjeta, key) => {
+			if (tarjeta.numero === this.state.numeroTarjeta) {
+				existe = !existe
+			}
 		})
+
+		if (!existe) {
+			tarjetas.push(tarjeta)
+			Store.set('tarjetas', tarjetas)
+		} else {
+			alert("La tarjeta ya está guardada")
+		}
+
+	}
+
+	clickCancelar() {
+		// Cancelar la carga
 	}
 
 	render() {
 		return (
-			<div className="Tarjeta">
-				<div className="NuevaTarjeta">
-					<p className="marcaTarjeta">MOVI</p>
-					<p className="numeroTarjeta">
-						{this.state.numeroTarjeta.split("").map((a, b) => {
-							return (
-								<span key={b} className={`item-${b}`}>{a}</span>
-							)
-						})}
-					</p>
+			<div className="TarjetaWrapper">
+				<Tarjeta numero={this.state.numeroTarjeta} />
+				<div className="botones">
+					<input className="btn btn-cancelar" onClick={this.clickCancelar} type="button" value="Cancelar" />
+					<input className="btn btn-aceptar" onClick={this.clickAceptar} type="button" value="Aceptar" />
 				</div>
-				<button onClick={this.agregarTarjeta}>Agregar</button>
-				<input ref={(input) => { this.numeroTarjeta = input; }} onChange={this.onChange} type="text" className="hidden" />
+				<input ref={(input) => { this.numeroTarjeta = input; }} onChange={this.onChange} type="text" />
 			</div>
 		);
 	}
 }
+

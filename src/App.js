@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import NuevaTarjeta from './NuevaTarjeta';
+import Tarjetas from './Tarjetas.jsx';
 
 import './App.css';
 import './style.css';
@@ -17,13 +17,13 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    // const resp = await fetch('http://lamoviapi.estudioliberata.com')  
+    // const resp = await fetch('http://lamoviapi.estudioliberata.com')
     // const data = await resp.json()
 
     // this.setState({
     //   saldo: data.saldo,
     //   ultimoViaje: data.fecha,
-    //   tarjeta: data.tarjeta 
+    //   tarjeta: data.tarjeta
     // });
   }
 
@@ -31,10 +31,7 @@ class App extends Component {
       return (
         <div className="App">
           <header className="App-header">
-            <NuevaTarjeta />
-            {this.state.saldo &&
-              <p>Saldo: {this.state.saldo}</p>
-            }
+            <Tarjetas />
           </header>
         </div>
       );

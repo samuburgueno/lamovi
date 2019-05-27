@@ -1,45 +1,68 @@
+.Tarjetas {
+  text-align: left; }
+
 .Tarjeta {
-  align-items: center;
-}
-.Tarjeta .NuevaTarjeta {
+  background-color: #282c34;
+  color: white;
   width: 280px;
   height: 150px;
-  border: 4px solid white;
-  border-radius: 20px;
+  border-radius: 15px;
   position: relative;
   text-align: left;
   padding: 20px;
-}
-.Tarjeta .NuevaTarjeta .marcaTarjeta {
-  font-size: 40px;
-  font-weight: bold;
-  position: absolute;
-  top: 15px;
-  left: 20px;
-  margin: 0;
-}
-.Tarjeta .NuevaTarjeta .numeroTarjeta {
-  position: absolute;
-  bottom: 0;
-  left: 20px;
-  font-size: 22px;
-}
-.Tarjeta .NuevaTarjeta .numeroTarjeta span:nth-child(4n) {
-  margin-right: 5px;
-}
-.Tarjeta input[type=text] {
-  z-index: -9;
-  background-color: transparent;
-  border: 0;
-  color: transparent;
-}
-.Tarjeta input[type=text]:focus {
-  outline: none;
-}
-.Tarjeta button {
-  padding: 10px 15px;
-  border: 1px solid white;
-  display: block;
-}
+  margin-bottom: 20px; }
+  .Tarjeta .marcaTarjeta {
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    margin: 0; }
+  .Tarjeta .saldoTarjeta {
+    font-family: "Share Tech Mono", monospace;
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    margin: 0; }
+  .Tarjeta .numeroTarjeta {
+    position: absolute;
+    font-family: "Share Tech Mono", monospace;
+    bottom: 0;
+    left: 20px;
+    font-size: 24px; }
+    .Tarjeta .numeroTarjeta span:nth-child(4n) {
+      margin-right: 5px; }
+  .Tarjeta:hover {
+    cursos: pointer; }
+
+.TarjetaWrapper {
+  text-align: left;
+  margin-top: 25px; }
+  .TarjetaWrapper input[type="text"] {
+    z-index: -9;
+    background-color: transparent;
+    border: 0;
+    color: transparent; }
+    .TarjetaWrapper input[type="text"]:focus {
+      outline: none; }
+  .TarjetaWrapper .botones {
+    text-align: right; }
+    .TarjetaWrapper .botones .btn {
+      padding: 10px 15px;
+      border: 1px solid white;
+      background-color: transparent;
+      color: white;
+      text-transform: uppercase;
+      font-size: 14px;
+      border-radius: 6px; }
+      .TarjetaWrapper .botones .btn:last-child {
+        margin-left: 10px; }
+      .TarjetaWrapper .botones .btn.btn-aceptar {
+        background-color: #545454; }
+      .TarjetaWrapper .botones .btn.btn-cancelar {
+        border-color: #545454;
+        color: #545454; }
 
 /*# sourceMappingURL=style.css.map */
