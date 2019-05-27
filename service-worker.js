@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/lamovi/precache-manifest.149be6c1e74130ce880f71951850d4fb.js"
+  "/lamovi/precache-manifest.fcbca44d483f5d1ff1972bb25aa88224.js"
 );
 
 self.addEventListener('message', (event) => {
