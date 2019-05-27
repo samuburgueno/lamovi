@@ -1,30 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
+import NuevaTarjeta from './NuevaTarjeta';
+
 import './App.css';
+import './style.css';
 
 class App extends Component {
-  async componentDidMount() {
-    try {
-      const resp = await fetch('http://etr.gob.ar/ajax/getEncryptCuantoTengo_express.php', {
-          method: 'post',
-          credentials: 'include',
-          body: JSON.stringify({numTarjeta: '345678987654'})
-      });
-      const data = await resp.json()
-      console.log(data)
-    } catch(error) {
-      console.log(error)
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      saldo: false,
+      ultimoViaje: false,
+      tarjeta: false
     }
   }
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-      </div>
-    );
+  async componentDidMount() {
+    // const resp = await fetch('http://lamoviapi.estudioliberata.com')  
+    // const data = await resp.json()
+
+    // this.setState({
+    //   saldo: data.saldo,
+    //   ultimoViaje: data.fecha,
+    //   tarjeta: data.tarjeta 
+    // });
+  }
+
+  render() {
+      return (
+        <div className="App">
+          <header className="App-header">
+            <NuevaTarjeta />
+            {this.state.saldo &&
+              <p>Saldo: {this.state.saldo}</p>
+            }
+          </header>
+        </div>
+      );
   }
 }
 
