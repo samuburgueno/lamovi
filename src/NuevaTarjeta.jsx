@@ -68,12 +68,21 @@ export default class NuevaTarjeta extends Component {
 	render() {
 		return (
 			<div className="TarjetaWrapper">
-				<Tarjeta numero={this.state.numeroTarjeta} />
+				<div onClick={this.cargarNumero} className="Tarjeta">
+		            <p className="marcaTarjeta">M</p>
+		            <p className="numeroTarjeta">
+		                {this.state.numeroTarjeta.split("").map((a, b) => {
+		                    return (
+		                        <span key={b} className={`item-${b}`}>{a}</span>
+		                    )
+		                })}
+		            </p>
+		            <input className="numeroTarjeta" ref={(input) => { this.numeroTarjeta = input; }} onChange={this.onChange} type="text" />
+		        </div>
 				<div className="botones">
 					<input className="btn btn-cancelar" onClick={this.clickCancelar} type="button" value="Cancelar" />
 					<input className="btn btn-aceptar" onClick={this.clickAceptar} type="button" value="Aceptar" />
 				</div>
-				<input ref={(input) => { this.numeroTarjeta = input; }} onChange={this.onChange} type="text" />
 			</div>
 		);
 	}
